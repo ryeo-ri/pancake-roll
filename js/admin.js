@@ -58,7 +58,7 @@ function renderLogin() {
 async function loadPosts() {
   const posts = [];
   for await (const page of admin.collection(COLLECTION).pages({
-    sort: [{ metadata: "createdAt", direction: "desc" }],
+    sort: [[{ metadata: "createdAt" }, "desc"]],
     size: 100,
   })) {
     posts.push(...page.documents);
